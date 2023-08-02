@@ -1,0 +1,15 @@
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\bin\Debug\net6.0\BookManagerBUS.deps.json
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\bin\Debug\net6.0\BookManagerBUS.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\bin\Debug\net6.0\BookManagerBUS.pdb
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\bin\Debug\net6.0\BookManagerDAL.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\bin\Debug\net6.0\BookManagerDAL.pdb
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.AssemblyInfoInputs.cache
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.AssemblyInfo.cs
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\refint\BookManagerBUS.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\BookManagerBUS.pdb
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerBUS\obj\Debug\net6.0\ref\BookManagerBUS.dll
