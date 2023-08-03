@@ -779,6 +779,16 @@
             "rid": "win"
           }
         }
+      },
+      "BookManagerEntities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BookManagerEntities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookManagerEntities.dll": {}
+        }
       }
     }
   },
@@ -1998,10 +2008,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BookManagerEntities/1.0.0": {
+      "type": "project",
+      "path": "../BookManagerEntities/BookManagerEntities.csproj",
+      "msbuildProject": "../BookManagerEntities/BookManagerEntities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BookManagerEntities >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.0",
@@ -2034,7 +2050,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\ADMIN\\Desktop\\BookManager\\BookManager\\BookManagerEntities\\BookManagerEntities.csproj": {
+              "projectPath": "C:\\Users\\ADMIN\\Desktop\\BookManager\\BookManager\\BookManagerEntities\\BookManagerEntities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

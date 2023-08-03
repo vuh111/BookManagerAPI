@@ -4,7 +4,7 @@ using BookManagerBUS.BookBusiness;
 using BookManagerBUS.CategoryBusiness;
 using BookManagerBUS.RequestModel;
 using BookManagerDAL;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 
 namespace BookManagerAPI
 {

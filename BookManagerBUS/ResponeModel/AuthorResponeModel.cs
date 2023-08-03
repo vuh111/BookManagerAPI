@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookManagerBUS.ResponeModel
 {
-    internal class AuthorResponeModel
+    public class AuthorResponeModel
     {
+        public string Name { get; set; }
+        public DateTime Brithday { get; set; }
+        public string National { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace BookManagerBUS.QueryModel
     public class PaginationRequest
     {
 
-        public virtual string Sort { get; set; } = string.Empty;
+        public virtual string Sort { get; set; }
 
 
         [Range(1, int.MaxValue)]
@@ -21,7 +21,7 @@ namespace BookManagerBUS.QueryModel
         public int? PageSize { get; set; } 
 
 
-        public string Filter { get; set; } = "{}";
+        public string Filter { get; set; } 
 
 
     }

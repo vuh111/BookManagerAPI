@@ -1,7 +1,7 @@
 ﻿using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,27 +18,27 @@ namespace BookManagerBUS.AuthorBusiness
             _authorRepository = authorRepository;
         }
 
-        public async Task<Author> DeleteAsync(Guid id)
+        public async Task<AuthorEntity> DeleteAsync(Guid id)
         {
             return await _authorRepository.DeleteAsync(id);
         }
 
-        public async Task<Pagination<Author>> GetAllAsync(AuthorQueryModel authorQueryModel)
+        public async Task<Pagination<AuthorEntity>> GetAllAsync(AuthorQueryModel authorQueryModel)
         {
             return await _authorRepository.GetAllAsync(authorQueryModel);
         }
 
-        public async Task<Author> GetAsync(Guid id)
+        public async Task<AuthorEntity> GetAsync(Guid id)
         {
             return await _authorRepository.GetAsync(id);
         }
 
-        public async Task<Author> GetByNameAsync(string name)
+        public async Task<AuthorEntity> GetByNameAsync(string name)
         {
             return await _authorRepository.GetByNameAsync(name);
         }
 
-        public async Task<Author> SaveAsync(Author author)
+        public async Task<AuthorEntity> SaveAsync(AuthorEntity author)
         {
             return await _authorRepository.SaveAsync(author);
         }

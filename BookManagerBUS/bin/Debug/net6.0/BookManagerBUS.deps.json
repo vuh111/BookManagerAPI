@@ -470,11 +470,17 @@
       },
       "BookManagerDAL/1.0.0": {
         "dependencies": {
+          "BookManagerEntities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0"
         },
         "runtime": {
           "BookManagerDAL.dll": {}
+        }
+      },
+      "BookManagerEntities/1.0.0": {
+        "runtime": {
+          "BookManagerEntities.dll": {}
         }
       }
     }
@@ -773,6 +779,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "BookManagerDAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookManagerEntities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

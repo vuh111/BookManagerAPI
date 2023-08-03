@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookManagerDAL.Model
+namespace BookManagerBUS.ResponeModel
 {
-    public class Category
+    public class CategoryResponeModel
     {
-        public Guid Id { get; set; }
         public string Code { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; } = true;
-
     }
 }

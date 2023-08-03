@@ -1,7 +1,7 @@
 ﻿using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +12,10 @@ namespace BookManagerBUS.AuthorBusiness
 {
     public interface IAutherService
     {
-        Task<Pagination<Author>> GetAllAsync(AuthorQueryModel  authorQueryModel);
-        Task<Author> GetAsync(Guid id);
-        Task<Author> SaveAsync(Author author);
-        Task<Author> DeleteAsync(Guid id);
-        Task<Author> GetByNameAsync(string name);
+        Task<Pagination<AuthorEntity>> GetAllAsync(AuthorQueryModel  authorQueryModel);
+        Task<AuthorEntity> GetAsync(Guid id);
+        Task<AuthorEntity> SaveAsync(AuthorEntity author);
+        Task<AuthorEntity> DeleteAsync(Guid id);
+        Task<AuthorEntity> GetByNameAsync(string name);
     }
 }

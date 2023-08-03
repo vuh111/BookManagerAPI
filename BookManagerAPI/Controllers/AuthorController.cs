@@ -2,7 +2,7 @@
 using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,7 +54,7 @@ namespace BookManagerAPI.Controllers
         public async Task<IActionResult> Create (
             [FromBody] AuthorRequestModel authorRequestModel)
         {
-            var author = new Author() {
+            var author = new AuthorEntity() {
                 Brithday= authorRequestModel.Brithday,
                 Name= authorRequestModel.Name,
                 National= authorRequestModel.National,
@@ -74,7 +74,7 @@ namespace BookManagerAPI.Controllers
             [FromBody] AuthorRequestModel authorRequestModel,
             [FromQuery] Guid id)
         {
-            var author = new Author()
+            var author = new AuthorEntity()
             {
                 Id = id,
                 Name = authorRequestModel.Name,

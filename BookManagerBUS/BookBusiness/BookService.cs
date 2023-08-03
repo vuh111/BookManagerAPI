@@ -4,7 +4,7 @@ using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
 using BookManagerBUS.ResponeModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace BookManagerBUS.BookBusiness
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<Book> DeleteAsync(Guid id)
+        public async Task<BookEntity> DeleteAsync(Guid id)
         {
             return await _bookRepository.DeleteAsync(id);
         }
@@ -54,14 +54,27 @@ namespace BookManagerBUS.BookBusiness
             return result;
         }
 
-        public async Task<Book> GetAsync(Guid id)
+        public async Task<BookEntity> GetAsync(Guid id)
         {
             return await _bookRepository.GetAsync(id);
         }
 
-        public async Task<Book> SaveAsync(Book book)
+        public async Task<BookEntity> SaveAsync(BookRequestModel  bookRequestModel,Guid id)
         {
+            var booksAuthor = await _authorRepository.GetByNameAsync(bookRequestModel.AuthorName);
+            var booksCategory = await _categoryRepository.GetByNameAsync(bookRequestModel.CategoryName);
+  
+            var book = new BookEntity()
+            {
+                Id = id,
+                AuthorId = booksAuthor.Id,
+                CategoryId = booksCategory.Id,
+                Name = bookRequestModel.Name,
+                PublicDate = bookRequestModel.PublicDate,
+                CreateDate = DateTime.Now
+            };
             return await _bookRepository.SaveAsync(book);
+      
         }
     }
 }

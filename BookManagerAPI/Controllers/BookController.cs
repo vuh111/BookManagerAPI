@@ -5,7 +5,7 @@ using BookManagerBUS.CategoryBusiness;
 using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -30,12 +30,16 @@ namespace BookManagerAPI.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAll(
             [FromQuery] int? page,
-            [FromQuery] int? size)
+            [FromQuery] int? size,
+
+            [FromQuery] string? filter="" )
         {
             BookQueryModel filterObject = new BookQueryModel();
 
             if (page.HasValue) filterObject.CurrentPage = page.Value;
             if (size.HasValue) filterObject.PageSize = size.Value;
+            if(!String.IsNullOrEmpty(filter)) filterObject.Filter = filter;
+
             try
             {
                 var result = await _bookService.GetAllAsync(filterObject);
@@ -62,24 +66,9 @@ namespace BookManagerAPI.Controllers
         public async Task<IActionResult> Create(
             [FromBody] BookRequestModel model)
         {
-            var booksAuthor =await _authorService.GetByNameAsync(model.AuthorName);
-            var booksCategory =await _categoryService.GetByNameAsync(model.CategoryName);
-            if (booksAuthor == null || booksCategory==null)
-            {
-                return BadRequest("Invalid Authtor or Category");
-            }
             try
             {
-                var book = new Book()
-                {
-                    AuthorId = booksAuthor.Id,
-                    CategoryId = booksCategory.Id,
-                    Name = model.Name,
-                    PublicDate = model.PublicDate,
-                    CreateDate = DateTime.Now
-                };
-                await _bookService.SaveAsync(book);
-                return Ok(book);
+                return Ok(await _bookService.SaveAsync(model,Guid.Empty));
             }catch(Exception ex)
             {
                 return BadRequest(ex.Message);
@@ -90,34 +79,11 @@ namespace BookManagerAPI.Controllers
             [FromQuery] Guid id,
             [FromBody] BookRequestModel model)
         {
-            var booksAuthor = await _authorService.GetByNameAsync(model.AuthorName);
-            var booksCategory = await _categoryService.GetByNameAsync(model.CategoryName);
-            var bookByID = await _bookService.GetAsync(id);
-            if (booksAuthor == null || booksCategory == null)
-            {
-                return BadRequest("Invalid Authtor or Category");
-            }
-            if(bookByID == null)
-            {
-                return BadRequest("Invalid Book");
-            }
-
-
             try
             {
-                var book = new Book()
-                {
-                    Id = id,
-                    Name = model.Name,
-                    PublicDate = model.PublicDate,
-                    CreateDate = model.PublicDate,
-                    AuthorId = booksAuthor.Id,
-                    CategoryId = booksCategory.Id,
-                };
-                await _bookService.SaveAsync(book);
-                return Ok(book);
+                return Ok(await _bookService.SaveAsync(model,id));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

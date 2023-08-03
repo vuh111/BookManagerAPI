@@ -869,6 +869,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BookManagerEntities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0"
         },
@@ -877,6 +878,16 @@
         },
         "runtime": {
           "bin/placeholder/BookManagerDAL.dll": {}
+        }
+      },
+      "BookManagerEntities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BookManagerEntities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookManagerEntities.dll": {}
         }
       }
     }
@@ -2436,6 +2447,11 @@
       "type": "project",
       "path": "../BookManagerDAL/BookManagerDAL.csproj",
       "msbuildProject": "../BookManagerDAL/BookManagerDAL.csproj"
+    },
+    "BookManagerEntities/1.0.0": {
+      "type": "project",
+      "path": "../BookManagerEntities/BookManagerEntities.csproj",
+      "msbuildProject": "../BookManagerEntities/BookManagerEntities.csproj"
     }
   },
   "projectFileDependencyGroups": {

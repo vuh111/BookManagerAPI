@@ -1,6 +1,6 @@
 ﻿using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,27 +17,27 @@ namespace BookManagerBUS.CategoryBusiness
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<Category> DeleteAsync(Guid id)
+        public async Task<CategoryEntity> DeleteAsync(Guid id)
         {
            return await _categoryRepository.DeleteAsync(id);
         }
 
-        public async Task<Pagination<Category>> GetAllAsync(CategoryQueryModel categoryQueryModel)
+        public async Task<Pagination<CategoryEntity>> GetAllAsync(CategoryQueryModel categoryQueryModel)
         {
             return await _categoryRepository.GetAllAsync(categoryQueryModel);
         }
 
-        public async Task<Category> GetAsync(Guid id)
+        public async Task<CategoryEntity> GetAsync(Guid id)
         {
             return await _categoryRepository.GetAsync(id);
         }
 
-        public async Task<Category> GetByNameAsync(string name)
+        public async Task<CategoryEntity> GetByNameAsync(string name)
         {
             return await _categoryRepository.GetByNameAsync(name);
         }
 
-        public async Task<Category> SaveAsync(Category category)
+        public async Task<CategoryEntity> SaveAsync(CategoryEntity category)
         {
             return await _categoryRepository.SaveAsync(category);
         }

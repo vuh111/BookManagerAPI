@@ -2,7 +2,7 @@
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
 using BookManagerBUS.ResponeModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +15,8 @@ namespace BookManagerBUS.BookBusiness
     {
         public const string Message_BookNotFound = "BookNotFound";
         Task<IEnumerable<BookResponeModel>> GetAllAsync(BookQueryModel bookQueryModel);
-        Task<Book> GetAsync(Guid id);
-        Task<Book> SaveAsync(Book book);
-        Task<Book> DeleteAsync(Guid id);
+        Task<BookEntity> GetAsync(Guid id);
+        Task<BookEntity> SaveAsync(BookRequestModel book,Guid id);
+        Task<BookEntity> DeleteAsync(Guid id);
     }
 }

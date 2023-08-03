@@ -1,7 +1,7 @@
 ﻿using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerDAL;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace BookManagerBUS.CategoryBusiness
             _dbContext = dbContext;
         }
 
-        public async Task<Category> GetByNameAsync(string name)
+        public async Task<CategoryEntity> GetByNameAsync(string name)
         {
             var category = await _dbContext.Categories.FirstOrDefaultAsync(x=>x.CategoryName== name);
             if( category == null)
@@ -28,7 +28,7 @@ namespace BookManagerBUS.CategoryBusiness
             }
             return category;
         }
-        public async Task<Category> DeleteAsync(Guid id)
+        public async Task<CategoryEntity> DeleteAsync(Guid id)
         {
             var category = await GetAsync(id);
             if (category == null) {
@@ -40,15 +40,15 @@ namespace BookManagerBUS.CategoryBusiness
             return category;
         }
 
-        public async Task<Pagination<Category>> GetAllAsync(CategoryQueryModel categoryQueryModel)
+        public async Task<Pagination<CategoryEntity>> GetAllAsync(CategoryQueryModel categoryQueryModel)
         {
             categoryQueryModel.PageSize = categoryQueryModel.PageSize.HasValue ? categoryQueryModel.PageSize : 20;
             categoryQueryModel.CurrentPage = categoryQueryModel.CurrentPage.HasValue ? categoryQueryModel.CurrentPage.Value : 1;
             var query = _dbContext.Categories.AsQueryable().Where(x => x.IsActive == true);
-            return await query.GetPagedAsync<Category>(categoryQueryModel.CurrentPage.Value, categoryQueryModel.PageSize.Value);
+            return await query.GetPagedAsync<CategoryEntity>(categoryQueryModel.CurrentPage.Value, categoryQueryModel.PageSize.Value);
         }
 
-        public async Task<Category> GetAsync(Guid id)
+        public async Task<CategoryEntity> GetAsync(Guid id)
         {
             var book = await _dbContext.Categories.FirstOrDefaultAsync(x => x.Id == id && x.IsActive == true);
             if (book == null)
@@ -58,7 +58,7 @@ namespace BookManagerBUS.CategoryBusiness
             return book;
         }
 
-        public async Task<Category> SaveAsync(Category category)
+        public async Task<CategoryEntity> SaveAsync(CategoryEntity category)
         {
             if(category.Id==Guid.Empty)
             {

@@ -1,7 +1,7 @@
 ﻿using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerDAL;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace BookManagerBUS.BookBusiness
             _dataContext = dataContext;
         }
 
-        public async Task<Book> DeleteAsync(Guid id)
+        public async Task<BookEntity> DeleteAsync(Guid id)
         {
             var book= await _dataContext.Books.FirstOrDefaultAsync(x=>x.Id==id);
             if (book==null)
@@ -33,25 +33,30 @@ namespace BookManagerBUS.BookBusiness
             return book;
         }
 
-        public async Task<Pagination<Book>> GetAllAsync(BookQueryModel bookQueryModel)
+        public async Task<Pagination<BookEntity>> GetAllAsync(BookQueryModel bookQueryModel)
         {
             bookQueryModel.PageSize= bookQueryModel.PageSize.HasValue? bookQueryModel.PageSize:20;
             bookQueryModel.CurrentPage = bookQueryModel.CurrentPage.HasValue ? bookQueryModel.CurrentPage.Value : 1;
-
+            
 
             var query =  _dataContext.Books.AsQueryable()
                                            .Where(x=>x.IsActive ==true);
 
-            return  await query.GetPagedAsync<Book>(bookQueryModel.CurrentPage.Value, bookQueryModel.PageSize.Value);
+            if (!string.IsNullOrEmpty(bookQueryModel.Filter)){
+                query=query.Where(x => x.IsActive == true && x.Name.ToLower().Contains(bookQueryModel.Filter.ToLower()));
+            }
+
+
+            return  await query.GetPagedAsync<BookEntity>(bookQueryModel.CurrentPage.Value, bookQueryModel.PageSize.Value);
         }
 
-        public async Task<Book> GetAsync(Guid id)
+        public async Task<BookEntity> GetAsync(Guid id)
         {
             var result = await _dataContext.Books.FirstOrDefaultAsync(x=>x.Id== id&& x.IsActive==true);
             return result;
         }
 
-        public async Task<Book> SaveAsync(Book book)
+        public async Task<BookEntity> SaveAsync(BookEntity book)
         {
             if (book.Id == Guid.Empty)
             {

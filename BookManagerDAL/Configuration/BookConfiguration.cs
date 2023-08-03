@@ -1,4 +1,5 @@
-﻿using BookManagerDAL.Model;
+﻿
+using BookManagerEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace BookManagerDAL.Configuration
 {
-    public class BookConfiguration : IEntityTypeConfiguration<Book>
+    public class BookConfiguration : IEntityTypeConfiguration<BookEntity>
     {
-        public void Configure(EntityTypeBuilder<Book> builder)
+        public void Configure(EntityTypeBuilder<BookEntity> builder)
         {
             builder.HasKey(x => x.Id); 
         }

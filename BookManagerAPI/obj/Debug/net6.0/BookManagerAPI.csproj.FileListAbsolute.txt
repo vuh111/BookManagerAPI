@@ -67,3 +67,5 @@ C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerAPI\bin\Debug\net6.0\B
 C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerAPI\bin\Debug\net6.0\BookManagerBUS.pdb
 C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerAPI\bin\Debug\net6.0\BookManagerDAL.pdb
 C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerAPI\bin\Debug\net6.0\BookManagerEntities.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerAPI\bin\Debug\net6.0\BookManagerEntities.pdb

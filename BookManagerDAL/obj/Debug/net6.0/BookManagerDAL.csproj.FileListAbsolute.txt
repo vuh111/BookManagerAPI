@@ -12,3 +12,6 @@ C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\obj\Debug\net6.0\r
 C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\obj\Debug\net6.0\BookManagerDAL.pdb
 C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\obj\Debug\net6.0\BookManagerDAL.genruntimeconfig.cache
 C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\obj\Debug\net6.0\ref\BookManagerDAL.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\bin\Debug\net6.0\BookManagerEntities.dll
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\bin\Debug\net6.0\BookManagerEntities.pdb
+C:\Users\ADMIN\Desktop\BookManager\BookManager\BookManagerDAL\obj\Debug\net6.0\BookManagerDAL.csproj.CopyComplete

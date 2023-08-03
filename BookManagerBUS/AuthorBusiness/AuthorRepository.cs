@@ -2,7 +2,7 @@
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
 using BookManagerDAL;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace BookManagerBUS.AuthorBusiness
             _dataContext = bookManagerDbcontext;
         }
 
-        public async Task<Author> GetByNameAsync(string name)
+        public async Task<AuthorEntity> GetByNameAsync(string name)
         {
             var author= await _dataContext.Authors.FirstOrDefaultAsync(x=>x.Name==name);
             if (author == null)
@@ -30,7 +30,7 @@ namespace BookManagerBUS.AuthorBusiness
             }
             return author;
         }
-        public async Task<Author> DeleteAsync(Guid Id)
+        public async Task<AuthorEntity> DeleteAsync(Guid Id)
         {
             var author =await _dataContext.Authors.FirstOrDefaultAsync(x => x.Id == Id);
             if (author == null)
@@ -44,22 +44,24 @@ namespace BookManagerBUS.AuthorBusiness
 
         }
 
-        public async Task<Author> GetAsync(Guid Id)
+        public async Task<AuthorEntity> GetAsync(Guid Id)
         {
             var result = await _dataContext.Authors.FirstOrDefaultAsync(x=> x.Id == Id && x.IsActive==true);
             return result;
         }
 
-        public async Task<Pagination<Author> >GetAllAsync(AuthorQueryModel authorQueryModel)
+        public async Task<Pagination<AuthorEntity> >GetAllAsync(AuthorQueryModel authorQueryModel)
         {
             authorQueryModel.PageSize = authorQueryModel.PageSize.HasValue ? authorQueryModel.PageSize : 20;
             authorQueryModel.CurrentPage = authorQueryModel.CurrentPage.HasValue ? authorQueryModel.CurrentPage.Value : 1;
 
             var query = _dataContext.Authors.AsQueryable().Where(x=>x.IsActive ==true);
 
-            return await query.GetPagedAsync<Author>(authorQueryModel.CurrentPage.Value, authorQueryModel.PageSize.Value);
+
+
+            return await query.GetPagedAsync<AuthorEntity>(authorQueryModel.CurrentPage.Value, authorQueryModel.PageSize.Value);
         } 
-        public async Task<Author> SaveAsync(Author author)
+        public async Task<AuthorEntity> SaveAsync(AuthorEntity author)
         {
             if (author.Id == Guid.Empty)
             {

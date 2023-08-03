@@ -1,4 +1,4 @@
-﻿using BookManagerDAL.Model;
+﻿using BookManagerEntities.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ namespace BookManagerBUS.ResponeModel
         public DateTime PublicDate { get; set; }
         public DateTime CreateDate { get; set; }
         public bool Active { get; set; } = true;
-        public Author? Author { get; set; }
-        public Category? Category { get; set; }
+        public AuthorEntity? Author { get; set; }
+        public CategoryEntity? Category { get; set; }
     }
 }

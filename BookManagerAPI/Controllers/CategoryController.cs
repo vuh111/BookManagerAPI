@@ -2,7 +2,7 @@
 using BookManagerBUS.Extensions;
 using BookManagerBUS.QueryModel;
 using BookManagerBUS.RequestModel;
-using BookManagerDAL.Model;
+using BookManagerEntities.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +19,7 @@ namespace BookManagerAPI.Controllers
             _categoryService = categoryService;
         }
         [HttpGet("")]
-        public async Task<Pagination<Category>>Getall(
+        public async Task<Pagination<CategoryEntity>>Getall(
             [FromQuery] int? page,
             [FromQuery] int? size)
         {
@@ -46,7 +46,7 @@ namespace BookManagerAPI.Controllers
         public async Task<IActionResult> Create(
             [FromBody] CategoryRequestModel  categoryRequestModel)
         {
-            var category = new Category() {
+            var category = new CategoryEntity() {
                 CategoryName= categoryRequestModel.CategoryName,
                 Code= categoryRequestModel.Code,
                 Description= categoryRequestModel.Description
@@ -66,7 +66,7 @@ namespace BookManagerAPI.Controllers
             [FromBody] CategoryRequestModel categoryRequestModel,
             [FromQuery] Guid id)
         {
-            var category = new Category()
+            var category = new CategoryEntity()
             {
                 Id = id,
                 CategoryName = categoryRequestModel.CategoryName,

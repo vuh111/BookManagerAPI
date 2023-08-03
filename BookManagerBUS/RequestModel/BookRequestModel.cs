@@ -1,10 +1,10 @@
-﻿using BookManagerDAL.Model;
+﻿using BookManagerEntities.Entities;
 
 namespace BookManagerBUS.RequestModel
 {
     public class BookRequestModel
     {
-   
+        
         public string Name { get; set; }
         public DateTime PublicDate { get; set; }
         public DateTime CreateDate { get; set; }
